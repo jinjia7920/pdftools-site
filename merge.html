@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge PDF Files Online - Free, Private, No Upload | QuickPDF Tools</title>
+  <meta name="description" content="Merge multiple PDF files into one document. Works entirely in your browser — no file uploads, 100% private. Drag, drop, reorder, and download instantly.">
+  <meta name="keywords" content="merge pdf, combine pdf, pdf merger, merge pdf files, combine pdf files, pdf combiner, merge pdf online free">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://quickpdftools.com/merge.html">
+  <meta property="og:title" content="Merge PDF Files Online - Free, Private, No Upload">
+  <meta property="og:description" content="Combine multiple PDFs into one. 100% browser-based, no uploads, completely private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quickpdftools.com/merge.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232563EB'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">P</div>
+        QuickPDF Tools
+      </a>
+      <ul class="nav-links">
+        <li><a href="merge.html" style="color:#2563EB;">Merge PDF</a></li>
+        <li><a href="split.html">Split PDF</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb container">
+    <a href="index.html">Home</a> &rsaquo; Merge PDF
+  </div>
+
+  <!-- Tool Header -->
+  <div class="tool-header container">
+    <h1>Merge PDF Files</h1>
+    <p>Combine multiple PDFs into a single document. 100% private — files never leave your device.</p>
+  </div>
+
+  <!-- Main Tool Area -->
+  <main class="container" style="max-width:800px;padding-bottom:60px;">
+
+    <!-- Upload Area -->
+    <div id="uploadArea" class="upload-area">
+      <span class="upload-icon">&#128229;</span>
+      <h3>Drop your PDF files here</h3>
+      <p>or click to browse. You can also paste files (Ctrl+V).</p>
+      <input type="file" id="fileInput" class="file-input-hidden" accept=".pdf,application/pdf" multiple>
+      <label for="fileInput" class="btn btn-primary mt-16" style="cursor:pointer;">Choose Files</label>
+    </div>
+
+    <!-- File List -->
+    <div id="fileList" class="file-list"></div>
+
+    <!-- Ad Space -->
+    <div class="ad-placeholder">Advertisement</div>
+
+    <!-- Action Bar -->
+    <div id="actionBar" class="action-bar hidden">
+      <button id="mergeBtn" class="btn btn-primary btn-lg">
+        &#128196; Merge & Download
+      </button>
+      <button id="clearBtn" class="btn btn-secondary">
+        Clear All
+      </button>
+    </div>
+
+    <!-- Processing Overlay -->
+    <div id="processingOverlay" class="processing-overlay hidden">
+      <div class="spinner"></div>
+      <p id="processingText">Processing your files...</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <p>&copy; 2026 QuickPDF Tools. All processing happens locally in your browser. <a href="index.html">Home</a> &middot; <a href="merge.html">Merge PDF</a> &middot; <a href="split.html">Split PDF</a></p>
+  </footer>
+
+  <!-- Script loading -->
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="js/merge.js"></script>
+</body>
+</html>
