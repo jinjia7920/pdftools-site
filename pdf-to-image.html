@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Image Converter - Convert PDF to JPG/PNG Free | QuickPDF Tools</title>
+  <meta name="description" content="Convert PDF pages to high-quality JPG or PNG images. 100% browser-based — no uploads, completely private. Preview pages, choose format, download individually or as ZIP.">
+  <meta name="keywords" content="pdf to image, pdf to jpg, pdf to png, convert pdf to image, pdf to picture, extract images from pdf, pdf converter">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pdftools-site-syom.vercel.app/pdf-to-image.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232563EB'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .format-selector { display: flex; gap: 12px; margin: 20px 0; justify-content: center; }
+    .format-btn { padding: 10px 24px; border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; background: white; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+    .format-btn:hover { border-color: var(--color-border-focus); }
+    .format-btn.active { border-color: var(--color-primary); background: var(--color-primary-light); color: var(--color-primary); }
+    .quality-slider { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 12px 0; }
+    .quality-slider input[type=range] { width: 200px; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo"><div class="logo-icon">P</div>QuickPDF Tools</a>
+      <ul class="nav-links">
+        <li><a href="merge.html">Merge PDF</a></li>
+        <li><a href="split.html">Split PDF</a></li>
+        <li><a href="compress.html">Compress PDF</a></li>
+        <li><a href="pdf-to-image.html" style="color:#2563EB;">PDF to Image</a></li>
+        <li><a href="blog/">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb container"><a href="index.html">Home</a> &rsaquo; PDF to Image</div>
+
+  <div class="tool-header container">
+    <h1>Convert PDF to Image</h1>
+    <p>Export PDF pages as high-quality JPG or PNG images. Preview and select pages, download individually or as ZIP.</p>
+  </div>
+
+  <main class="container" style="max-width:900px;padding-bottom:60px;">
+
+    <div id="uploadArea" class="upload-area">
+      <span class="upload-icon">&#128444;</span>
+      <h3>Drop your PDF file here</h3>
+      <p>or click to browse</p>
+      <input type="file" id="fileInput" class="file-input-hidden" accept=".pdf,application/pdf">
+      <label for="fileInput" class="btn btn-primary mt-16" style="cursor:pointer;">Choose File</label>
+    </div>
+
+    <div id="fileInfo" class="hidden" style="margin-top:16px;">
+      <div class="file-item">
+        <span class="file-icon">&#128196;</span>
+        <div class="file-info">
+          <div class="file-name" id="fileName"></div>
+          <div class="file-size" id="fileSize"></div>
+        </div>
+        <button class="file-remove" id="removeFileBtn" aria-label="Remove">&times;</button>
+      </div>
+    </div>
+
+    <div id="conversionSettings" class="hidden">
+      <h3 style="text-align:center;margin-top:24px;">Output Format</h3>
+      <div class="format-selector" id="formatSelector">
+        <button class="format-btn active" data-format="jpg">JPG</button>
+        <button class="format-btn" data-format="png">PNG</button>
+      </div>
+      <div class="quality-slider" id="qualitySlider">
+        <span style="font-size:0.9rem;color:var(--color-text-secondary);">Quality:</span>
+        <input type="range" id="qualityRange" min="50" max="100" value="90" step="5">
+        <span id="qualityLabel" style="font-size:0.9rem;font-weight:600;">90%</span>
+      </div>
+    </div>
+
+    <div id="thumbnailGrid" class="thumbnail-grid"></div>
+
+    <div class="ad-placeholder hidden" id="adSpace">Advertisement</div>
+
+    <div id="actionBar" class="action-bar hidden">
+      <span style="font-size:0.9rem;color:var(--color-text-secondary);" id="selectedCount">0 pages selected</span>
+      <button id="downloadSelectedBtn" class="btn btn-primary btn-lg">&#128229; Download Selected</button>
+      <button id="downloadAllBtn" class="btn btn-secondary">Download All as ZIP</button>
+    </div>
+
+    <div id="processingOverlay" class="processing-overlay hidden">
+      <div class="spinner"></div>
+      <p id="processingText">Converting PDF to images...</p>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2026 QuickPDF Tools. <a href="index.html">Home</a> &middot; <a href="merge.html">Merge</a> &middot; <a href="split.html">Split</a> &middot; <a href="compress.html">Compress</a> &middot; <a href="pdf-to-image.html">PDF to Image</a> &middot; <a href="blog/">Blog</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="js/pdf-to-image.js"></script>
+</body>
+</html>
