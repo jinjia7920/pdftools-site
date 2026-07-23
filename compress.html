@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compress PDF Files Online - Reduce PDF Size Free & Private | QuickPDF Tools</title>
+  <meta name="description" content="Reduce PDF file size without losing quality. 100% browser-based compression — no uploads, completely private. Choose compression level and download instantly.">
+  <meta name="keywords" content="compress pdf, reduce pdf size, pdf compressor, compress pdf online, shrink pdf, pdf file size reducer, free pdf compressor">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pdftools-site-syom.vercel.app/compress.html">
+  <meta property="og:title" content="Compress PDF Files Online - Free, Private, No Upload">
+  <meta property="og:description" content="Reduce PDF file size in your browser. Choose compression level, preview result, download instantly. 100% private.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232563EB'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .compression-options { display: flex; gap: 12px; margin: 20px 0; flex-wrap: wrap; justify-content: center; }
+    .compression-option { flex: 1; min-width: 140px; max-width: 200px; padding: 20px 16px; border: 2px solid var(--color-border); border-radius: var(--radius-md); text-align: center; cursor: pointer; transition: all 0.2s; }
+    .compression-option:hover { border-color: var(--color-border-focus); }
+    .compression-option.active { border-color: var(--color-primary); background: var(--color-primary-light); }
+    .compression-option.active h3 { color: var(--color-primary); }
+    .compression-option .level-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .compression-option .level-desc { font-size: 0.8rem; color: var(--color-text-muted); }
+    .compression-option .level-quality { font-size: 0.85rem; font-weight: 600; color: var(--color-primary); margin-top: 6px; }
+    .compression-option.active .level-quality { color: var(--color-primary-dark); }
+    .size-comparison { display: flex; gap: 24px; justify-content: center; margin: 24px 0; flex-wrap: wrap; }
+    .size-card { flex: 1; min-width: 160px; max-width: 240px; padding: 24px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--color-border); }
+    .size-card.before { background: #FEF2F2; }
+    .size-card.after { background: #D1FAE5; }
+    .size-card .size-label { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 8px; }
+    .size-card .size-value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+    .size-card .size-saved { font-size: 0.9rem; color: #059669; font-weight: 600; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo"><div class="logo-icon">P</div>QuickPDF Tools</a>
+      <ul class="nav-links">
+        <li><a href="merge.html">Merge PDF</a></li>
+        <li><a href="split.html">Split PDF</a></li>
+        <li><a href="compress.html" style="color:#2563EB;">Compress PDF</a></li>
+        <li><a href="blog/">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb container"><a href="index.html">Home</a> &rsaquo; Compress PDF</div>
+
+  <div class="tool-header container">
+    <h1>Compress PDF Files</h1>
+    <p>Reduce PDF file size right in your browser. Choose your quality level and download instantly.</p>
+  </div>
+
+  <main class="container" style="max-width:800px;padding-bottom:60px;">
+
+    <div id="uploadArea" class="upload-area">
+      <span class="upload-icon">&#128207;</span>
+      <h3>Drop your PDF file here</h3>
+      <p>or click to browse. Max recommended size: 50MB per file.</p>
+      <input type="file" id="fileInput" class="file-input-hidden" accept=".pdf,application/pdf">
+      <label for="fileInput" class="btn btn-primary mt-16" style="cursor:pointer;">Choose File</label>
+    </div>
+
+    <div id="fileInfo" class="hidden" style="margin-top:16px;">
+      <div class="file-item">
+        <span class="file-icon">&#128196;</span>
+        <div class="file-info">
+          <div class="file-name" id="fileName"></div>
+          <div class="file-size" id="fileSize"></div>
+        </div>
+        <button class="file-remove" id="removeFileBtn" aria-label="Remove">&times;</button>
+      </div>
+    </div>
+
+    <div id="compressionSection" class="hidden">
+      <h3 style="text-align:center;margin-top:32px;">Choose Compression Level</h3>
+      <div class="compression-options" id="compressionOptions">
+        <div class="compression-option" data-level="1">
+          <div class="level-name">Maximum</div>
+          <div class="level-desc">Smallest file size</div>
+          <div class="level-quality" style="color:#EF4444;">Lower quality</div>
+        </div>
+        <div class="compression-option active" data-level="2">
+          <div class="level-name">Recommended</div>
+          <div class="level-desc">Good balance</div>
+          <div class="level-quality" style="color:#2563EB;">Good quality</div>
+        </div>
+        <div class="compression-option" data-level="3">
+          <div class="level-name">Minimal</div>
+          <div class="level-desc">Best quality</div>
+          <div class="level-quality" style="color:#059669;">High quality</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-placeholder hidden" id="adSpace">Advertisement</div>
+
+    <div id="actionBar" class="action-bar hidden">
+      <button id="compressBtn" class="btn btn-primary btn-lg">&#128207; Compress & Download</button>
+    </div>
+
+    <div id="resultSection" class="hidden">
+      <div class="size-comparison">
+        <div class="size-card before">
+          <div class="size-label">Original Size</div>
+          <div class="size-value" id="originalSize">—</div>
+        </div>
+        <div class="size-card after">
+          <div class="size-label">Compressed Size</div>
+          <div class="size-value" id="compressedSize">—</div>
+          <div class="size-saved" id="savedPercent"></div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <button id="downloadBtn" class="btn btn-primary btn-lg">&#128229; Download Compressed PDF</button>
+        <button id="resetBtn" class="btn btn-secondary mt-8">Compress Another File</button>
+      </div>
+    </div>
+
+    <div id="processingOverlay" class="processing-overlay hidden">
+      <div class="spinner"></div>
+      <p id="processingText">Compressing your PDF...</p>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2026 QuickPDF Tools. <a href="index.html">Home</a> &middot; <a href="merge.html">Merge</a> &middot; <a href="split.html">Split</a> &middot; <a href="compress.html">Compress</a> &middot; <a href="blog/">Blog</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="js/compress.js"></script>
+</body>
+</html>
